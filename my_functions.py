@@ -14,6 +14,18 @@ def clean_text(text):
     return text
 
 
+#stopwords removal
+
+import re
+import nltk
+from nltk.corpus import stopwords 
+
+def stopword_remove(text):
+    text = ' '.join(word for word in text.split() if word not in stop_words)
+    
+    return text
+
+
 #emotion decoder
 
 def mooder(text):
@@ -40,15 +52,15 @@ def mooder(text):
     print(f"Your mood appear to be {max_mood}")
 
     if max_mood == 'joy':
-        print("I'm glad to hear you are having a great time. May you feel this way for a long time.")
+        print(f"The detected emotion is {max_mood}. No further investigation required.")
     elif max_mood == 'anger':
-        print('I understand how you can feel frustrated and I wish you feel better soon.')
+        print(f"The detected emotion is {max_mood}. Further investigation required.")
     elif max_mood == 'fear':
-        print('I understand how you can be concerned. Please connect with a loved one to seek support.')
+        print(f"The detected emotion is {max_mood}. Further investigation may be required.")
     elif max_mood == 'love':
-        print('Feeling love is the best feeling one could experience. May this long last for you and your loved one.')
+        print(f"The detected emotion is {max_mood}. No further investigation required.")
     elif max_mood == 'surprise':
-        print('You seem surprised! I hope the surprise was a good one for you!')
+        print(f"The detected emotion is {max_mood}. No further investigation required.")
     else:
-        print("I'm sorry to hear you are sad. If you need support, please reach out to one of your loved ones.")
+        print(f"The detected emotion is {max_mood}. No further investigation may be required.")
     return moods
