@@ -64,3 +64,9 @@ def mooder(text):
     else:
         print(f"The detected emotion is {max_mood}. No further investigation may be required.")
     return moods
+
+import numpy as np
+
+def normalize_logits(row):
+      scores = np.exp(row)
+      return scores / scores.sum()
