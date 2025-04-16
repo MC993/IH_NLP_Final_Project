@@ -21,7 +21,7 @@ import nltk
 from nltk.corpus import stopwords 
 
 def stopword_remove(text):
-    text = ' '.join(word for word in text.split() if word not in stop_words)
+    text = ' '.join(word for word in text.split() if word not in stopwords)
     
     return text
 
